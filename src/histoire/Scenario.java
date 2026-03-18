@@ -36,10 +36,20 @@ public class Scenario {
 
 		System.out.println(village.rechercherVendeursProduit("fleurs"));
 		Etal etalFleur = village.rechercherEtal(bonemine);
-		System.out.println(etalFleur.acheterProduit(10, abraracourcix));
-		System.out.println(etalFleur.acheterProduit(15, obelix));
+		try {
+		System.out.println(etalFleur.acheterProduit(0, abraracourcix));
+		} catch (IllegalArgumentException e) {
+			System.err.println(e.getMessage());
+		}
+		
+		
 		System.out.println(etalFleur.acheterProduit(15, assurancetourix));
 		System.out.println(village.partirVendeur(bonemine));
+		try {
+		System.out.println(etalFleur.acheterProduit(15, obelix));
+		} catch (IllegalStateException e) {
+			System.err.println(e.getMessage());
+		}
 		System.out.println(village.afficherMarche());
 	}
 
